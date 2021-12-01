@@ -7,7 +7,7 @@ function calculate(problemA){
     if (!problemA) 
         first = parseInt(input[0]) + parseInt(input[1]) + parseInt(input[2]);
     let result = 0;
-    for(let i = 1; i < input.length-2; i++){
+    for(let i = 1; i < input.length; i++){
         let second = parseInt(input[i])
         if (!problemA) 
             second = parseInt(input[i]) + parseInt(input[i+1]) + parseInt(input[i+2]);
