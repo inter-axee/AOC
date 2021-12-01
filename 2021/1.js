@@ -21,7 +21,7 @@ function calculate(problemA){
     }
     return result;
     //console.log(result);
-    }
+}
 
 //Problem A
 console.log(calculate(true));
