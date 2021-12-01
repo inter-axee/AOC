@@ -4,10 +4,13 @@ const input = parseInput(readInFile());
 //console.log(input);
 function calculate(problemA){
     let first = parseInt(input[0]);
-    if (!problemA) 
+    let arrayCounts = input.length;
+    if (!problemA) {
         first = parseInt(input[0]) + parseInt(input[1]) + parseInt(input[2]);
+        arrayCounts = input.length - 2;
+    }
     let result = 0;
-    for(let i = 1; i < input.length; i++){
+    for(let i = 1; i < arrayCounts; i++){
         let second = parseInt(input[i])
         if (!problemA) 
             second = parseInt(input[i]) + parseInt(input[i+1]) + parseInt(input[i+2]);
