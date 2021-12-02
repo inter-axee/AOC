@@ -1,15 +1,11 @@
 const {readInFile} = require('../read_input');
-
 const input = parseInput(readInFile());
-//console.log(input);
-function calculate(problemA){
-   
-    let result = 0, x =0, y=0, aim = 0;
 
+function calculate(problemA){
+    let x =0, y=0, aim = 0;
     for(let i = 0; i < input.length; i++){
         var direction = input[i].split(' ')[0];
         var weight = parseInt(input[i].split(' ')[1]);
-        //console.log("d: " + direction + " w: "+ weight);  
         switch (direction){
             case 'forward' :
                     x = x + weight;
@@ -27,7 +23,6 @@ function calculate(problemA){
         //console.log("x: " + x + " y: "+ y + " aim: " + aim);  
     }
     return x*y;
-    //console.log(result);
 }
 
 //Problem A
