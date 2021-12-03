@@ -28,6 +28,10 @@ function problemA(){
     return parseInt(result1.join(""),2) * parseInt(result2.join(""),2);
 }
 
+/**
+ * Given an array(array) with binary numbers count the number of 1's in given position (pos)
+ * and return an array with the count and the total of binary numbers
+ */
 function countInPosition(array, pos){
     let total = 0;
     let count = 0;
@@ -38,6 +42,11 @@ function countInPosition(array, pos){
     return {count, total}
 }
 
+/**
+ * Given an array (array) with binary numbers check binary number at position if it meets the bit criteria given in the problem
+ * validNumber steers if it is bit criteria 1 or 0
+ * Return an array with all binary numbers that meets the criteria
+ */
 function getValidNumbers(array, pos, validNumber){
     let result = [];
     let t = countInPosition(array,pos);
@@ -46,7 +55,6 @@ function getValidNumbers(array, pos, validNumber){
     //console.log(moreOnes);
     for(let i = 0; i < array.length;i++){
         let value = array[i];
-        //console.log(parseInt(array[i][0]));
         if (moreOnes){
             if (parseInt(array[i][pos]) == validNumber)
                 result.push(value);
@@ -63,31 +71,27 @@ function getValidNumbers(array, pos, validNumber){
 
 //Problem A
 console.log(problemA());
+
 //Problem B
-let oldArray = input.slice();
+let resultArray = input;
 //console.log(oldArray);
 for (let i = 0; i < input[0].length; i++){
-    let newArray = getValidNumbers(oldArray,i, 1);
-    oldArray = newArray.slice();
-    //console.log(oldArray);
-}
-
-//console.log(parseInt(oldArray.join(""),2));
-a = parseInt(oldArray.join(""),2);
-
-oldArray = input.slice();
-//console.log(oldArray);
-for (let i = 0; i < input[0].length; i++){
-    let newArray = getValidNumbers(oldArray,i,0);
-    oldArray = newArray.slice();
-    if (oldArray.length == 1)
+    resultArray = getValidNumbers(resultArray,i, 1);
+    if (resultArray.length == 1)
         break;
-    //console.log(oldArray);
 }
-//console.log(parseInt(oldArray.join(""),2));
-b = parseInt(oldArray.join(""),2);
+const oxygen = parseInt(resultArray.join(""),2);
 
-console.log(a*b);
+resultArray = input;
+//console.log(oldArray);
+for (let i = 0; i < input[0].length; i++){
+    resultArray = getValidNumbers(resultArray,i,0);
+    if (resultArray.length == 1)
+        break;
+}
+const CO2 = parseInt(resultArray.join(""),2);
+
+console.log(oxygen*CO2);
 
 function parseInput(input_string){
     return input_string.split('\n').map(line => {
