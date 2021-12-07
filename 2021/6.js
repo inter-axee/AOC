@@ -4,7 +4,9 @@ const input = parseInput(readInFile());
 //console.log(input);
 
 /**
+ * NOT USED- worked for part 1
  * works on smaller number of days, but when days increase too much memory is allocated
+ * Not every fish needs to be accounted for
  */
 function calculate(problemA){
     const DAYS = 80;
@@ -18,10 +20,8 @@ function calculate(problemA){
             }else
             input[i] -= 1;
         }
-        //console.log(d, input.join());
     }
     return input.length;
-    //console.log(result);
 }
 
 /**
@@ -44,9 +44,8 @@ function calculateDays(numberOfDays){
 
 //Problem A
 console.log(calculateDays(80));
-console.log(calculateDays(256));
 //Problem B
-//console.log(calculate(false));
+console.log(calculateDays(256));
 
 function parseInput(input_string){
     return input_string.split(',').map(line => {
