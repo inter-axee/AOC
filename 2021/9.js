@@ -4,9 +4,19 @@ const input = parseInput(readInFile());
 //console.log(input);
 
 /**
- * TODO: Also checking diagonals which was wrong but generates correct answer anyway
+ * Cleaned up version where the diagonals are not counted
  */
-function isLowerThanSurounding(y,x, array){
+function isLowerThanSurrounding(y,x, array){
+    result = true;
+    if (array[y][x] >= array[y-1][x])
+        return false;
+    if (array[y][x] >= array[y][x-1] || array[y][x] >= array[y][x+1])
+        return false;
+    if (array[y][x] >= array[y+1][x])
+        return false;
+    return true;
+}
+/*function isLowerThanSurounding(y,x, array){
     result = true;
     if (array[y][x] >= array[y-1][x-1] || array[y][x] >= array[y-1][x] || array[y][x] >= array[y-1][x+1])
         return false;
@@ -15,8 +25,13 @@ function isLowerThanSurounding(y,x, array){
     if (array[y][x] >= array[y+1][x-1] || array[y][x] >= array[y+1][x] || array[y][x] >= array[y+1][x+1])
         return false;
     return true;
-}
+}*/
 
+/**
+ * Recursive function that finds number of basins which are positions with 
+ * heights that increase until height 9 is found which is not counted
+ * foundBasins is used so same basins are not calculated more than once
+ */
 function findBasin(y,x, array, foundBasins){
     //console.log("found basin", y, x, array[y][x]);
     if (foundBasins.includes(`${y},${x}`))
@@ -38,28 +53,23 @@ function findBasin(y,x, array, foundBasins){
 }
 
 function calculate(problemA){
+    //Create a frame around the input matrix with 9's
     new_input_array = input.slice();
-
     for (i = 0; i < new_input_array.length; i++){
         new_input_array[i] = '9' + new_input_array[i] + '9';
     }
     new_input_array.unshift( new Array(input[0].length+2).fill(9).join('') );
     new_input_array.push( new Array(input[0].length+2).fill(9).join('') );
-    //console.log(new_input_array);
+    
     let sum = 0;
     basins = [];
-    for(let i = 1; i < new_input_array.length-1; i++){
+    for(let i = 1; i < new_input_array.length-1; i++)
         for (let j = 1; j < new_input_array[i].length-1; j++)
-            if (isLowerThanSurounding(i,j,new_input_array)){
-                //console.log(i,j, new_input_array[i][j]);
-                sum += parseInt(new_input_array[i][j]) + 1;
-                basins.push(findBasin(i,j,new_input_array,[]));
-                //console.log("Basin: ",findBasin(i,j,new_input_array,[]))
+            if (isLowerThanSurrounding(i,j,new_input_array)){
+                sum += parseInt(new_input_array[i][j]) + 1; //Part A
+                basins.push(findBasin(i,j,new_input_array,[])); //Part B
             }
-    }
-    //console.log(basins.sort((a,b) => b-a));
     basins = basins.sort((a,b) => b-a);
-    //console.log(basins);
     if (problemA)
         return sum;
     else
