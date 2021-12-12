@@ -5,3 +5,4 @@ Advent of code programming puzzles using node.
 
 Required packages:
 * fs
+* graph-data-structure (2021 Day 12)
