@@ -25,12 +25,15 @@ const createMatrixFrame = (matrix, frame) => {
 const printMatrix = (matrix, highlight1, highlight2) => {
     for (let i = 0; i < matrix.length; i++){
         for (let j = 0; j < matrix[i].length; j++){
-            if (matrix[i][j] == highlight1)
-                process.stdout.write(matrix[i][j].toString().blue);
-            else if (matrix[i][j] == highlight2)
-            process.stdout.write(matrix[i][j].toString().red);
-            else
-                process.stdout.write(matrix[i][j].toString());
+            if (matrix[i][j]){
+                if (matrix[i][j] == highlight1)
+                    process.stdout.write(matrix[i][j].toString().blue);
+                else if (matrix[i][j] == highlight2)
+                process.stdout.write(matrix[i][j].toString().red);
+                else
+                    process.stdout.write(matrix[i][j].toString());
+            }else
+                process.stdout.write('?');
         }
         process.stdout.write('\n');
     }
