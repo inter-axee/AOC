@@ -113,7 +113,7 @@ function calculate(m,m_y,m_x){
 }
 
 function parseInput(input_string){
-    return input_string.split('\n\r\n').map(line => {
+    return input_string.split('\n\n').map(line => {
         return line.trim();
         //return line.trim().split('').map(x=>+x);
     });
