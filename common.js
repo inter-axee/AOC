@@ -33,7 +33,7 @@ const printMatrix = (matrix, highlight1, highlight2) => {
                 else
                     process.stdout.write(matrix[i][j].toString());
             }else
-                process.stdout.write('?');
+                process.stdout.write('0');
         }
         process.stdout.write('\n');
     }
