@@ -1,6 +1,4 @@
 'use strict'
-
-const exp = require('constants');
 const fs = require('fs')
 const input = fs.readFileSync('./1.txt', 'utf-8').trim().split('\n').map(x=>+x);
 
