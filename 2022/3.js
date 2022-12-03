@@ -10,7 +10,6 @@ function calculate(problemA){
         //console.log(length + ' ' + a1 + '  2:'+  a2 );
         const filteredArray = a1.filter(value => a2.includes(value));
         //console.log(filteredArray);
-        //{}
         unique = [...new Set(filteredArray)];
         //console.log(unique);
         unique.forEach(x => {
@@ -51,10 +50,8 @@ function calculate2(new_input){
 }
 
 const savedInput = structuredClone(input);
-console.log("in: " + input[0].length + " sliced: " + savedInput[0].length);
 //Problem A
 console.log(calculate());
-console.log("in: " + input[0].length + " sliced: " + savedInput[0].length);
 //Problem B
 console.log(calculate2(savedInput));
 //console.log(calculate(false));
