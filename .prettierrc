@@ -1,11 +1,11 @@
 {
-"editor.formatOnSave": true,
-"prettier.singleQuote": true,
-"prettier.printWidth": 70,
-"[javascript]": {
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 80,
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
+  },
 
-"tabWidth": 2,
-"useTabs": false
+  "tabWidth": 2,
+  "useTabs": false
 }
