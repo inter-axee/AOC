@@ -1,6 +1,6 @@
 const { log } = require("console");
 const { readInFile } = require("../read_input");
-
+console.time("test");
 const input = parseInput(readInFile());
 //console.log(input[0]);
 
@@ -39,6 +39,7 @@ for (i = 0; i < input.length; i++) {
 //not 563358
 console.log(acc);
 
+console.timeEnd("test");
 function parseInput(input_string) {
   return input_string.split("\n").map((x) => {
     //return line.trim();
